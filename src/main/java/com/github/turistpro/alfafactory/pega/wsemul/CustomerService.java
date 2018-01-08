@@ -30,14 +30,18 @@ public class CustomerService implements Lifecycle {
 
 
     public Customer CustomerInfo(String id){
-        return new CustomerFactory(faker).getFakeCustomer();
+        Customer cus = new CustomerFactory(faker).getFakeCustomer();
+        cus.setId(id);
+        return cus;
     }
 
-    public List<Customer> CustomerSearch(String name) {
+    public List<Customer> CustomerSearch(Customer cus) {
         CustomerFactory factory = new CustomerFactory(faker);
+        Customer genCus;
         List<Customer> results = new ArrayList<Customer>();
         for(int i=0; i<100; i++) {
-            results.add(factory.getFakeCustomer());
+            genCus = factory.getFakeCustomer(cus);
+            results.add(genCus);
         }
         return results;
     }
