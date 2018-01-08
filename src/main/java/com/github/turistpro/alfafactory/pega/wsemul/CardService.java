@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class AccountService implements Lifecycle {
+public class CardService implements Lifecycle {
 
     private Faker faker;
 
@@ -29,19 +29,19 @@ public class AccountService implements Lifecycle {
     }
 
 
-    public Account AccountInfo(String id){
-        return new AccountFactory(faker).getFakeAccount();
+    public Card CardInfo(String id){
+        return new CardFactory(faker).getFakeCard();
     }
 
-    public List<Account> AccountList(String customerId) {
-        AccountFactory factory = new AccountFactory(faker);
-        Account genAcc;
-        List<Account> results = new ArrayList<Account>();
-        int accountNumbers = faker.number().numberBetween(1, 5);
-        for(int i = 0; i < accountNumbers; i++) {
-            genAcc = factory.getFakeAccount();
-            genAcc.setCustomerId(customerId);
-            results.add(genAcc);
+    public List<Card> CardList(String customerId) {
+        CardFactory factory = new CardFactory(faker);
+        Card genCard;
+        List<Card> results = new ArrayList<Card>();
+        int cardNumbers = faker.number().numberBetween(1, 5);
+        for(int i = 0; i < cardNumbers; i++) {
+            genCard = factory.getFakeCard();
+            genCard.setCustomerId(customerId);
+            results.add(genCard);
         }
         return results;
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<serviceGroup>
+    <service name="CardService">
+        <parameter name="ServiceClass">com.github.turistpro.alfafactory.pega.wsemul.CardService</parameter>
+        <operation name="CardInfo">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        </operation>
+        <operation name="CardList">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        </operation>
+    </service>
+</serviceGroup>
