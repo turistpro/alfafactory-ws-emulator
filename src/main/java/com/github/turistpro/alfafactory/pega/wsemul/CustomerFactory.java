@@ -59,4 +59,11 @@ public class CustomerFactory {
         cus.setEmail(faker.internet().emailAddress(transliterate(username)));
         return cus;
     }
+    public Customer getFakeCustomer(Customer sibCus) {
+        Customer cus = getFakeCustomer();
+        /*if (sibCus.getLastName().length()>0) {
+            cus.setLastName(sibCus.getLastName());
+        }*/
+        return cus;
+    }
 }
