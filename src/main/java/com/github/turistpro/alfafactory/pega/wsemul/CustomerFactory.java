@@ -2,6 +2,7 @@ package com.github.turistpro.alfafactory.pega.wsemul;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
+import com.github.turistpro.javafaker.FakerRussian;
 
 import java.util.regex.Pattern;
 
@@ -57,6 +58,7 @@ public class CustomerFactory {
         String username = (cus.getLastName() + "." + cus.getFirstName())
                 .toLowerCase();
         cus.setEmail(faker.internet().emailAddress(transliterate(username)));
+        cus.setInn(new FakerRussian(faker).inn12());
         return cus;
     }
     public Customer getFakeCustomer(Customer sibCus) {

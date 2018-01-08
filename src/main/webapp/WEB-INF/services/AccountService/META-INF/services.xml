@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<serviceGroup>
+    <service name="AccountService">
+        <parameter name="ServiceClass">com.github.turistpro.alfafactory.pega.wsemul.AccountService</parameter>
+        <operation name="AccountInfo">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        </operation>
+        <operation name="AccountList">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        </operation>
+    </service>
+</serviceGroup>

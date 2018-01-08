@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CustomerService implements Lifecycle {
+public class AccountService implements Lifecycle {
 
     private Faker faker;
 
@@ -29,20 +29,19 @@ public class CustomerService implements Lifecycle {
     }
 
 
-    public Customer CustomerInfo(String id){
-        Customer cus = new CustomerFactory(faker).getFakeCustomer();
-        if(id != null && !id.isEmpty())
-            cus.setId(id);
-        return cus;
+    public Account AccountInfo(String id){
+        return new AccountFactory(faker).getFakeAccount();
     }
 
-    public List<Customer> CustomerSearch(Customer cus) {
-        CustomerFactory factory = new CustomerFactory(faker);
-        Customer genCus;
-        List<Customer> results = new ArrayList<Customer>();
-        for(int i=0; i<100; i++) {
-            genCus = factory.getFakeCustomer(cus);
-            results.add(genCus);
+    public List<Account> AccountList(String customerId) {
+        AccountFactory factory = new AccountFactory(faker);
+        Account genAcc;
+        List<Account> results = new ArrayList<Account>();
+        int accountNumbers = faker.number().numberBetween(1, 5);
+        for(int i=0; i<accountNumbers; i++) {
+            genAcc = factory.getFakeAccount();
+            genAcc.setCustomerId(customerId);
+            results.add(genAcc);
         }
         return results;
     }

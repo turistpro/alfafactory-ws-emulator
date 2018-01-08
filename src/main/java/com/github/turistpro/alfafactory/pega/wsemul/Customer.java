@@ -11,6 +11,7 @@ public class Customer {
     private Date birthdate;
     private String phoneNumber;
     private String email;
+    private String inn;
 
     public String getId() {
         return id;
@@ -76,4 +77,11 @@ public class Customer {
         this.email = email;
     }
 
+    public String getInn() {
+        return inn;
+    }
+
+    public void setInn(String inn) {
+        this.inn = inn;
+    }
 }
