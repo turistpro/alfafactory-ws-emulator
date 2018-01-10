@@ -1,18 +1,17 @@
-package com.github.turistpro.javafaker;
+package com.github.javafaker;
 
-import com.github.javafaker.Faker;
+public class Russian {
 
-public class FakerRussian {
+    protected FakerRussian faker;
 
     private static final int[] REGION_NUMBERS = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,83,86,87,89,91,92};
     private static final int[] INN_NUMBERS = {3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8};
-    protected Faker faker;
 
-    public FakerRussian(Faker faker) {
+    public Russian(FakerRussian faker) {
         this.faker = faker;
     }
 
-    private static int innCheckSum(String inn, int offset, int arrOffset) {
+    private int innCheckSum(String inn, int offset, int arrOffset) {
         int sum = 0;
         int length = inn.length();
         for (int i = 0; i < length - offset; i++) {
@@ -21,11 +20,11 @@ public class FakerRussian {
         return (sum % 11) % 10;
     }
 
-    private static boolean innCheck(String inn, int offset, int arrOffset) {
+    private boolean innCheck(String inn, int offset, int arrOffset) {
         return innCheckSum(inn, offset, arrOffset) == inn.charAt(inn.length() - offset) - '0';
     }
 
-    public static boolean isValidINN(String inn) {
+    public boolean isValidINN(String inn) {
         int length = inn.length();
         if (length == 12) {
             return innCheck(inn, 2, 1) && innCheck(inn, 1, 0);
